@@ -1,0 +1,52 @@
+// .about__cont {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//     height: 100vh;
+//     background: #000;
+// }
+// .about__inner {
+//     font-size: 10vw;
+//     line-height: 0.85;
+//     font-family: "saol";
+//     color: #fff;
+//     text-transform: uppercase;
+// }
+
+.container {
+    padding-bottom: 250px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.about__item {
+    display: flex;
+    flex: 1 1 30%;
+    margin: 1%;
+
+  .about-txt {
+      padding: 1.4rem;
+      h3 {
+          color: var(--black);
+          font-family: var(--main_font);
+          font-size: 1.5rem;
+          line-height: 1;
+          margin-top: 2em;
+          margin-bottom: 15px;
+      }
+      p {
+          color: var(--black);
+          font-family: var(--sub_font);
+      }
+  }
+}
+// 라이트 버전
+* {
+    background-color: var(--light_bg);
+    border-color: var(--light_border);
+    a {
+        color: var(--black);
+        &::before {
+            background: var(--black);
+        }
+    }
+}
