@@ -1,15 +1,14 @@
 import React from "react";
 
-//함수형 컴퍼넌트 * 클래스 컴퍼넌트 --> 리엑트 훅
-
-function MainInfo({text}) {
+function MainInfo({text}){
     return <div>{text}</div>
 }
+
 const mainText = [
-    {text : "WE PROVIDE"},
-    {text : "VISUAL CODING"},
-    {text : "SOLUTIONS"},
-    {text : "FOR YOU WEBS"},
+    {text : "We Provide"},
+    {text : "Visual coding"},
+    {text : "Solutions"},
+    {text : "for you webs"},
 ]
 
 function MainCont(){
@@ -23,4 +22,5 @@ function MainCont(){
         </section>
     )
 }
+
 export default MainCont;

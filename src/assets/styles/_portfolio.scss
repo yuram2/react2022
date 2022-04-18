@@ -1,6 +1,6 @@
-//port__cont
+// port__cont
 .port__cont {
-    padding-bottom: 20vh;
+    background-color: var(--black);
 }
 .port__inner {
     display: flex;
@@ -11,9 +11,11 @@
 .port__item {
     flex: 1 1 30%;
     margin: 1%;
+
     .text {
         padding: 1.4rem;
         background-color: #151517;
+
         h3 {
             color: var(--white);
             font-family: var(--main_font);

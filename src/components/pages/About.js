@@ -1,19 +1,19 @@
 import React from "react";
-import Header from "../includes/Header"
-import Contents from "../includes/Contents"
-import Footer from "../includes/Footer"
-import AboutCont from "../includes/AboutCont"
-import ContTitle from "../includes/ContTitle"
-import ContContact from "../includes/ContContact"
+import Header from "../layout/Header";
+import Contents from "../layout/Contents";
+import Footer from "../layout/Footer";
+import AboutCont from "../includes/AboutCont";
+import Title from "../layout/Title";
+import Contact from "../layout/Contact";
 
 function About(){
     return (
         <>
             <Header color="light" />
             <Contents>
-                <ContTitle title={["About","me"]} color="light" />
+                <Title title={["About","me"]} color="light" />
                 <AboutCont color="light" />
-                <ContContact />
+                <Contact />
             </Contents>
             <Footer color="light" />
         </>

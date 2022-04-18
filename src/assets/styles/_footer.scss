@@ -1,14 +1,15 @@
 #footer {
     position: fixed;
-    left: 0;
+    left: 0; 
     bottom: 0;
     width: 100%;
-    color: var(--white);
+    color: var(white);
     border-top: 1px solid var(--dark_border);
     background-color: var(--dark_bg);
     display: flex;
     align-items: center;
     font-family: "Rajdhani";
+
     div {
         text-align: center;
         padding: 1.45rem;
@@ -17,8 +18,11 @@
     ul {
         display: inline-block;
     }
+
     a {
         position: relative;
+        color: var(--white);
+        
         &::before {
             content: '';
             position: absolute;
@@ -34,31 +38,38 @@
             transform: scaleX(1);
         }
     }
+
     h4 {
         font-weight: 600;
         padding: 0 0.6em;
-        text-transform: capitalize; //앞글자만 대문자
+        text-transform: capitalize;
+        color: var(--white);
     }
-    div:nth-child(1) {
+
+    div:nth-child(1){
         flex: 1 1 25%;
         border-right: 1px solid var(--dark_border);
     }
-    div:nth-child(2) {
+    div:nth-child(2){
         flex: 1 1 20%;
         border-right: 1px solid var(--dark_border);
     }
-    div:nth-child(3) {
+    div:nth-child(3){
         flex: 1 1 55%;
+
         li {
             display: inline;
+
             a {
                 display: inline-block;
                 padding: 0 0.6em;
                 position: relative;
+                color: var(--white);
+
                 &::before {
                     content: '';
                     position: absolute;
-                    left: 0.6rem;
+                    left: 0.6em;
                     bottom: 0;
                     width: calc(100% - 1.2em);
                     height: 1px;
@@ -74,7 +85,8 @@
     }
 }
 
-//라이트 버전
+
+// 라이트 버전
 .light#footer {
     background-color: var(--light_bg);
     border-color: var(--light_border);
@@ -82,10 +94,9 @@
     h4 {
         color: var(--black);
     }
-
     a {
         color: var(--black);
-        
+
         &::before {
             background: var(--black);
         }
@@ -95,19 +106,30 @@
 
         li {
             a {
+                color: var(--black);
+
                 &::before {
                     background: var(--black);
                 }
             }
         }
+        
     }
 }
 
-//미디어 쿼리
+// 미디어 쿼리
 @media (max-width: 1000px){
     #footer {
-        div:nth-child(1) {display: none;}
-        div:nth-child(2) {display: none;}
-        div:nth-child(3) {display: none;}
+        div:nth-child(1) {
+            h4 {
+                display: none;
+            }
+        }
+        div:nth-child(2) {
+            display: none;
+        }
+        div:nth-child(3) {
+            display: none;
+        }
     }
 }

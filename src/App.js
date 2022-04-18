@@ -19,6 +19,6 @@ function App() {
       <Route path="/contact" exact component={Contact} />
       <Route path="/portfolio" exact component={Portfolio} />
     </Router>
-  );
+  );  
 }
 export default App;

@@ -1,21 +1,32 @@
 import React from "react";
-import Header from "../includes/Header"
-import Contents from "../includes/Contents"
-import Footer from "../includes/Footer"
+import Contents from "../layout/Contents";
+import Footer from "../layout/Footer";
+import Header from "../layout/Header";
 
-function Contact(){
+function Info({text}){
+    return <div>{text}</div>
+}
+const textInfo = [
+    {text : "You are"},
+    {text : "already"},
+    {text : "doing well."},
+]
+function Contact() {
     return (
-        <>
-            <Header />
-            <Contents>
-                <section className="contact__cont">
-                    <div className="contact__inner">
-                        <div>contact 페이지입니다.</div>
-                    </div>
-                </section>
-            </Contents>
-            <Footer />
-        </>
+        <div>
+        <Header></Header>
+        <Contents>
+            <section id="mainCont">
+                <h2 className="sr-only">연락처 컨텐츠 영역입니다.</h2>
+                <div className="main__cont tact">
+                    {textInfo.map((info)=>(
+                        <Info text = {info.text} key = {info.text}></Info>
+                    ))}
+                </div>
+            </section>
+        </Contents>
+        <Footer></Footer>  
+    </div>
     )
 }
 

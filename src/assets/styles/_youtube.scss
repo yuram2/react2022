@@ -1,14 +1,7 @@
 .youtube__cont {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background: #000;
+    background-color: var(--black);
 }
+
 .youtube__inner {
-    font-size: 10vw;
-    line-height: 0.85;
-    font-family: "saol";
-    color: #fff;
-    text-transform: uppercase;
+
 }
