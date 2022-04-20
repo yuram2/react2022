@@ -18,6 +18,7 @@
 
     em {
         display: block;
+
     }
 }
 .cont__title.light {
@@ -37,13 +38,15 @@
 
     strong {
         display: block;
-        opacity: 0;
+        opacity: 1;
         transform: translateY(50px);
+
     }
     em {
         display: block;
-        opacity: 0;
+        opacity: 1;
         transform: translateY(50px);
+
     }
 }
 

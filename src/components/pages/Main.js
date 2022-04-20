@@ -71,7 +71,7 @@ class Main extends React.Component {
         gsap.set(".main__inner", {opacity: 0})
     }
 
-    componentDidMount(){ //
+    componentDidMount(){
         setTimeout(() => {
             this.setState({isLoading:false});
             this.getSite();
