@@ -12,7 +12,7 @@ function ReferItem({id, title, desc}){
         }}
       </td>
     </tr>
-  ) 
+  )
 }
 
 function referCont(props) {
