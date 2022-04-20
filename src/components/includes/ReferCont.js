@@ -1,5 +1,20 @@
 import React from 'react'
 
+function ReferItem({id, title, desc}){
+  return (
+    <tr>
+      <td>{id}</td>
+      <td>{title}</td>
+      <td>
+        <Link to={{
+          pathname : "/refer-detail",
+          
+        }}
+      </td>
+    </tr>
+  )
+}
+
 function referCont(props) {
   return (
     <section className={`refer__cont ${props.color}`}>
