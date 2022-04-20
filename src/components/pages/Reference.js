@@ -74,7 +74,7 @@ class Reference extends React.Component {
             document.getElementById("loading").classList.remove("loading__active");
             document.querySelector("body").style.background = "#F0EEEB";
             this.getSite();
-        }, 2000);
+        }, 2000); 
     }
     render(){
         const {isLoading, refers} = this.state;
