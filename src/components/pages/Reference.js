@@ -7,6 +7,7 @@ import Contact from "../layout/Contact";
 import ReferCont from "../includes/ReferCont";
 import Loading from "../basics/Loading";
 import { gsap } from "gsap";
+import axios from "axios";
 // function Reference(){
 //     return (
 //         <>
@@ -23,6 +24,7 @@ import { gsap } from "gsap";
 class Reference extends React.Component {
     state = {
         isLoading: true,
+        refers: [],
     }
     mainAnimation = () => {
         setTimeout(() => {
@@ -58,12 +60,14 @@ class Reference extends React.Component {
             });
         }, 10)
     }
-    getSite = () => {
-        setTimeout(() => {
-            console.log("두번째 시작")
-            this.setState({isLoading: false});
-            this.mainAnimation();
-        }, 1600)
+    getSite = async () => {
+        const {
+                data: {
+                    data : {htmlRefer},
+            },
+        } = await axios.get("https://lur0872.github.io/react2022/src/assets/json/refer.json");
+        this.setState({refers: htmlRefer, isLoading: false})
+        this.mainAnimation();
     }
     componentDidMount(){
         setTimeout(() => {
@@ -73,9 +77,9 @@ class Reference extends React.Component {
         }, 2000);
     }
     render(){
-        const {isLoading} = this.state;
-        return (
-            <>
+        const {isLoading, refers} = this.state;
+        console.log(refers)
+        return (            <>
                 {isLoading ? (
                     <Loading color="light" />
                 ) : (
@@ -83,7 +87,7 @@ class Reference extends React.Component {
                         <Header color="light" />
                         <Contents>
                             <Title title={["Reference","book"]} color="light" />
-                            <ReferCont color="light" />
+                            <ReferCont refer={refers} color="light" />
                             <Contact />
                         </Contents>
                         <Footer color="light" />
