@@ -1,8 +1,24 @@
-import React from 'react'
-
-function referCont(props) {
+import React from 'react';
+import { Link } from 'react-router-dom';
+function ReferItem({id, title, desc}){
   return (
-    <section className={`refer__cont ${props.color}`}>
+    <tr>
+      <td>{id}</td>
+      <td>{title}</td>
+      <td>
+        <Link to={{
+          pathname : "/refer-detail",
+          state: {id, title, desc},
+        }}>
+          {desc.slice(0, 180)}
+        </Link>
+      </td>
+    </tr>
+  )
+}
+function ReferCont({refers, color}) {
+  return (
+    <section className={`refer__cont ${color}`}>
       <div className="container">
         <div className="refer__inner">
           <h2>CSS</h2>
@@ -12,43 +28,20 @@ function referCont(props) {
               <col style={{width: "20%"}} />
               <col style={{width: "70%"}} />
             </colgroup>
-            <tbody> 
-              <tr> 
-                <td>1</td>
-                <td>align-content</td>
-                <td>all 속성은 요소의 속성을 초기화 또는 상속을 설정합니다.</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>align-items</td>
-                <td>all 속성은 요소의 속성을 초기화 또는 상속을 설정합니다.</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>align-items</td>
-                <td>all 속성은 요소의 속성을 초기화 또는 상속을 설정합니다.</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>align-items</td>
-                <td>all 속성은 요소의 속성을 초기화 또는 상속을 설정합니다.</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>align-items</td>
-                <td>all 속성은 요소의 속성을 초기화 또는 상속을 설정합니다.</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>align-items</td>
-                <td>all 속성은 요소의 속성을 초기화 또는 상속을 설정합니다.</td>
-              </tr>
+            <tbody>
+              {refers.map(refer => (
+                <ReferItem
+                  key={refer.id}
+                  id={refer.id}
+                  title={refer.title}
+                  desc={refer.desc}
+                />
+              ))}
             </tbody>
           </table>
         </div>
       </div>
-    </section>  
+    </section>
   )
 }
-
-export default referCont
+export default ReferCont
