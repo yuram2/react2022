@@ -8,20 +8,21 @@ import Loading from "../basics/Loading";
 import ReferCont from "../includes/ReferCont";
 import { gsap } from "gsap";
 import axios from "axios";
-import { element } from "prop-types";
+
 class Reference extends React.Component {
     state = {
         isLoading: true,
         refers: [],
     }
+
     mainAnimation = () => {
-        setTimeout(() => {
+        setTimeout(() => { 
             gsap.to("#header", {
-                duration: 0.8,
+                duration: 0.8, 
                 top: 0,
             });
             gsap.to("#footer", {
-                duration: 0.8,
+                duration: 0.8, 
                 bottom: 0,
                 delay: 0.2,
             });
@@ -48,6 +49,7 @@ class Reference extends React.Component {
             // });
         }, 10)
     }
+
     getRefers = async () => {
         const {
             data: {
@@ -57,12 +59,14 @@ class Reference extends React.Component {
         this.setState({ refers: htmlRefer,  isLoading: false,})
         this.mainAnimation();
     }
+
     componentDidMount(){
         setTimeout(() => {
             document.getElementById("loading").classList.remove("loading__active");
             this.getRefers();
         }, 2000);
     }
+
     render(){
         const {isLoading, refers} = this.state;
         console.log(refers)
@@ -74,19 +78,21 @@ class Reference extends React.Component {
                     <>
                         <Header />
                         <Contents>
-                            <Title title={["Refernece","Site"]} />
-                                <section className="refer__cont">
-                                    <div className="container">
-                                        <div className="refer__inner">
-                                            <ul className="refer__list">
-                                                {refers.map((refer) =>
+                            <Title title={["Portfolio","Site"]} />
+                            <section className="refer__cont">
+                                <div className="container">
+                                    <div className="refer__inner">
+                                        <h2>CSS</h2>
+                                        <ul className="refer__list">
+                                            {refers.map((refer) => (
                                                 <ReferCont 
                                                     key={refer.id}
                                                     id={refer.id}
                                                     title={refer.title}
                                                     desc={refer.desc}
                                                     use={refer.use}
-                                                    desc2={refet.desc2}
+
+                                                    desc2={refer.desc2}
                                                     element={refer.element}
                                                     tag={refer.tag}
                                                     version={refer.version}
@@ -95,16 +101,15 @@ class Reference extends React.Component {
                                                     link={refer.link}
                                                     Definition={refer.Definition}
                                                     Accessibility={refer.Accessibility}
-                                                    CrossBroswing={refer.CrossBroswing}
                                                     Related={refer.Related}
                                                     mdn={refer.mdn}
                                                     w3c={refer.w3c}
                                                 />
-                                                )}
-                                            </ul>
-                                        </div>
+                                            ))}
+                                        </ul>
                                     </div>
-                                </section>
+                                </div>
+                            </section>
                             <Contact />
                         </Contents>
                         <Footer />
@@ -112,6 +117,8 @@ class Reference extends React.Component {
                 )}
             </>
         )
+
     }
 }
+
 export default Reference;

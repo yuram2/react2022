@@ -2,12 +2,12 @@ import React from 'react';
 import propType from "prop-types";
 import { Link } from "react-router-dom";
 
-function ReferCont(id, title, desc, use) {
+function ReferCont({id, title, desc, use, desc2, element, tag, version, view, image, link, Definition, Accessibility, Related, mdn, w3c}) {
   return (
     <li>
       <Link to={{
-        pathname:"refer-detail",
-        state: {id, title, desc, use}
+        pathname: "refer-detail",
+        state: {id, title, desc, use, desc2, element, tag, version, view, image, link, Definition, Accessibility, Related, mdn, w3c}
       }}>
         <span className='num'>{id}</span>
         <span className='title'>{title}</span>
