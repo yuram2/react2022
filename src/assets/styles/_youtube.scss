@@ -3,5 +3,24 @@
 }
 
 .youtube__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
 
+.youtube__list {
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        li {
+            flex: 1 1 23%;
+            margin: 1%;
+            p {
+                color: var(--white);
+                font-family: var(--subKor_font);
+                padding-top: 7px;
+            }
+        }
+    }
 }
