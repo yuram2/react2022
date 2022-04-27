@@ -4,15 +4,15 @@ import Contents from "../layout/Contents";
 import Footer from "../layout/Footer";
 import Title from "../layout/Title";
 import Contact from "../layout/Contact";
-import YoutubeList from "../includes/YoutubeList";
-import YoutubeSearch from "../includes/YoutubeSearch";
+import MovieList from "../includes/MovieList";
+import MovieSearch from "../includes/MovieSearch";
 import Loading from '../basics/Loading';
 import { gsap } from "gsap";
 
 // require('dotenv').config()
 
-function Youtube() {
-  const [videos, setVideos] = useState([]);
+function Movie() {
+  const [lists, setVideos] = useState([]);
 
   const mainAnimation = () => {
       setTimeout(() => {
@@ -42,14 +42,14 @@ function Youtube() {
             delay: 1.3,
             ease: "power4.out"
         });
-        gsap.to(".youtube__search", {
+        gsap.to(".movie__search", {
             duration: 0.7,
             y: 0,
             opacity: 1,
             delay: 1.3,
             ease: "power4.out"
         });
-        gsap.to(".youtube__list", {
+        gsap.to(".movie__list", {
             duration: 0.7,
             y: 0,
             opacity: 1,
@@ -71,9 +71,9 @@ function Youtube() {
       method: 'GET',
       redirect: 'follow'
     };
-    fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=28&q=${query}&key=${process.env.REACT_APP_API}&type=video`, requestOptions)
+    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API}&query=${query}`, requestOptions)
       .then(response => response.json())
-      .then(result => setVideos(result.items))
+      .then(result => setVideos(result.results))
       .catch(error => console.log('error', error));
   }
   useEffect(()=> {
@@ -81,10 +81,10 @@ function Youtube() {
         method: 'GET',
         redirect: 'follow'
       };
-      fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=28&q=dingo&key=${process.env.REACT_APP_API}&type=video`, requestOptions)
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API}&query=Netflix`, requestOptions)
         .then(response => response.json())
         .then(result => {
-            setVideos(result.items);
+            setVideos(result.results);
             mainAnimation();
             })
         .catch(error => console.log('error', error));
@@ -94,12 +94,12 @@ function Youtube() {
         <Loading />
         <Header />
         <Contents>
-            <Title title={["youtube","reference"]} />
-            <section className="youtube__cont">
+            <Title title={["movie","reference"]} />
+            <section className="movie__cont">
                 <div className="container">
-                    <div className="youtube__inner">
-                        <YoutubeSearch onSearch={search} />
-                        <YoutubeList videos={videos} />
+                    <div className="movie__inner">
+                        <MovieSearch onSearch={search} />
+                        <MovieList videos={lists} />
                     </div>
                 </div>
             </section>
@@ -109,4 +109,4 @@ function Youtube() {
     </>
   )
 }
-export default Youtube;
+export default Movie;

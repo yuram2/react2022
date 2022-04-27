@@ -50,7 +50,7 @@ class Script extends React.Component {
         }, 10)
     }
     getScripts = async () => {
-        const lists = await axios.get("");//api주소
+        const lists = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=${process.env.REACT_APP_MOVIE_API}&query=marvel`);//api주소
         console.log(lists)
         this.setState({lists, isLoading: false});       
         this.mainAnimation();

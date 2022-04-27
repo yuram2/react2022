@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-function YoutubeSearch({ onSearch }) {
+function MovieSearch({ onSearch }) {
   const inputRef = useRef();
   const handleSearch = () => {
     const value = inputRef.current.value;
@@ -14,7 +14,7 @@ function YoutubeSearch({ onSearch }) {
     }
   };
   return (
-    <div className="youtube__search">
+    <div className="movie__search">
       <h2>검색하기</h2>
       <input
         ref={inputRef}
@@ -28,4 +28,4 @@ function YoutubeSearch({ onSearch }) {
     </div>
   );
 }
-export default YoutubeSearch;
+export default MovieSearch;
